@@ -114,8 +114,9 @@ const drawPath = (context, x1, y1, x2, y2) => {
     // LOCATION TO DRAW THE LINE
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
-    context.stroke();
+    context.lineJoin = "round";
     context.closePath();
+    context.stroke();
 };
 
 // BASE64 TO IMG FILE CONVERTER
