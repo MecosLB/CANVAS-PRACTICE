@@ -45,7 +45,7 @@ canvas.addEventListener("touchstart", (e) => {
     y = canvas.getBoundingClientRect().top;
 
     for (let touch of touches)
-        activeTouches.push(touch);
+        activeTouches.push(copyTouch(touch));
 });
 
 canvas.addEventListener("touchend", (e) => {
@@ -56,7 +56,7 @@ canvas.addEventListener("touchend", (e) => {
         if (findTouch(touch.identifier) < 0)
             continue;
 
-        context.lineWidth = 1;
+        context.lineWidth = 2;
         context.fillStyle = "black";
         activeTouches.splice(findTouch(touch.identifier), 1);
     }
@@ -85,7 +85,7 @@ canvas.addEventListener("touchmove", (e) => {
             activeTouches[idActive].clientY - y,
             touch.clientX - x,
             touch.clientY - y);
-        activeTouches.splice(idActive, 1, touch);
+        activeTouches.splice(idActive, 1, copyTouch(touch));
     }
 });
 
@@ -110,7 +110,7 @@ const drawPath = (context, x1, y1, x2, y2) => {
     context.beginPath();
     // COLOR AND WIDTH
     context.strokeStyle = "black";
-    context.lineWidth = 10;
+    context.lineWidth = 2;
     // LOCATION TO DRAW THE LINE
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
@@ -131,6 +131,10 @@ const base64toImage = (b64) => {
     }
 
     return new File([uint8], "test", { type: type });
+}
+
+const copyTouch = ({ identifier, clientX, clientY }) => {
+    return { identifier, clientX, clientY };
 }
 
 // FIND TOUCH BY ID
