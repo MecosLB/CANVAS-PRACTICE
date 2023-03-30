@@ -39,6 +39,7 @@ canvas.addEventListener("mousemove", (e) => {
 
 // ---TOUCH IMPLEMENTATION---
 canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault();
     const touches = e.changedTouches;
     x = canvas.getBoundingClientRect().left;
     y = canvas.getBoundingClientRect().top;
@@ -48,6 +49,7 @@ canvas.addEventListener("touchstart", (e) => {
 });
 
 canvas.addEventListener("touchend", (e) => {
+    e.preventDefault();
     const touches = e.changedTouches;
 
     for (let touch of touches) {
@@ -61,6 +63,7 @@ canvas.addEventListener("touchend", (e) => {
 });
 
 canvas.addEventListener("touchcancel", (e) => {
+    e.preventDefault();
     const touches = e.changedTouches;
 
     for (let touch of touches) {
@@ -69,6 +72,7 @@ canvas.addEventListener("touchcancel", (e) => {
 });
 
 canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
     const touches = e.changedTouches;
 
     for (let touch of touches) {
