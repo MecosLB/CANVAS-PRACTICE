@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Cnvas practice">
+    <title>Canvas practice</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        * {
+            font-family: sans-serif;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        hr {
+            width: 20rem;
+        }
+
+        hr,
+        #test,
+        #img-test {
+            border: 0.1rem solid #000;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>CANVAS PRACTICE</h1>
+        <hr>
+        <canvas id="test" width="500" height="300"></canvas>
+        <div>
+            <button id="send">ENVIAR</button>
+            <button id="clear">LIMPIAR</button>
+        </div>
+        <a style="display: none;" href="" download="" id="img-test">
+    </section>
+    <script src="script.js?v=0.1"></script>
+</body>
+
+</html>
