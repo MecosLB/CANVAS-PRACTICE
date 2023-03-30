@@ -110,7 +110,7 @@ const drawPath = (context, x1, y1, x2, y2) => {
     context.beginPath();
     // COLOR AND WIDTH
     context.strokeStyle = "black";
-    context.lineWidth = 1;
+    context.lineWidth = 10;
     // LOCATION TO DRAW THE LINE
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
