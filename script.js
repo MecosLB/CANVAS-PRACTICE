@@ -53,12 +53,12 @@ canvas.addEventListener("touchend", (e) => {
     const touches = e.changedTouches;
 
     for (let touch of touches) {
-        if (findTouch(touch.identifier) < 0)
+        if (findTouchIndex(touch.identifier) < 0)
             continue;
 
         context.lineWidth = 2;
         context.fillStyle = "black";
-        activeTouches.splice(findTouch(touch.identifier), 1);
+        activeTouches.splice(findTouchIndex(touch.identifier), 1);
     }
 });
 
@@ -67,7 +67,7 @@ canvas.addEventListener("touchcancel", (e) => {
     const touches = e.changedTouches;
 
     for (let touch of touches) {
-        activeTouches.splice(findTouch(touch.identifier), 1);
+        activeTouches.splice(findTouchIndex(touch.identifier), 1);
     }
 });
 
@@ -76,7 +76,7 @@ canvas.addEventListener("touchmove", (e) => {
     const touches = e.changedTouches;
 
     for (let touch of touches) {
-        const idActive = findTouch(touch.identifier);
+        const idActive = findTouchIndex(touch.identifier);
         if (idActive < 0)
             continue;
 
@@ -138,13 +138,6 @@ const copyTouch = ({ identifier, clientX, clientY }) => {
 }
 
 // FIND TOUCH BY ID
-const findTouch = (touchId) => {
-    for (let touch of activeTouches) {
-        if (touch.identifier !== touchId)
-            continue;
-
-        return touch.identifier;
-    }
-
-    return -1;
+const findTouchIndex = (touchId) => {
+    return activeTouches.findIndex( obj => obj.identifier === touchId);
 }
